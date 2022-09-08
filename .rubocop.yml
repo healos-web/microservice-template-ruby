@@ -1,0 +1,59 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+inherit_gem:
+  action_policy: config/rubocop-rspec.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - 'config/environments/*'
+  TargetRubyVersion: 3.1.1
+
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/policies/**'
+
+# Metric Cops
+
+Metrics/BlockLength:
+  IgnoredMethods:
+    - context
+    - describe
+    - it
+    - configure
+
+# Style Cops
+Style/StringLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/GlobalVars:
+  Exclude: 
+    - 'config/initializers/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+# Rspec Cops
+RSpec/FilePath:
+  SpecSuffixOnly: true
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10

@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/application'
+
+ExampleSVC::Application.finalize!
+
+include Dry::Monads[:result, :try, :list]
+
+module ExampleSVC
+  class ConsoleHelper
+    include Import['static']
+    include Import['inflector']
+  end
+end
+
+def helper
+  @helper ||= ExampleSVC::ConsoleHelper.new
+end
+
+require 'irb'
+IRB.start

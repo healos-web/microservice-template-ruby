@@ -1,0 +1,5 @@
+test_deep: 
+  deep_test: 'success'
+
+test_erb:
+  erb_test: "<%= ['s', 'u', 'c', 'c', 'e', 's', 's'].join %>"

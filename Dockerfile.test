@@ -1,0 +1,16 @@
+FROM ruby:3.1.1-slim-bullseye AS base
+
+RUN apt-get update -y && \
+    apt-get install libpq-dev -y
+
+RUN apt-get install build-essential -y
+
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle install --jobs=3 --retry=3
+
+WORKDIR /examplesvc
+
+COPY . ./
+RUN cp /Gemfile ./
+RUN cp /Gemfile.lock ./

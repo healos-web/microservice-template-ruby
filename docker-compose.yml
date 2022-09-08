@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  examplesvc:
+    image: ${IMAGE_PREFIX}examplesvc:${VERSION}
+    build: .
+    restart: always
+    environment:
+      APP_ENV: production

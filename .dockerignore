@@ -1,0 +1,26 @@
+.git
+.gitignore
+.gitattributes
+
+README.md
+Dockerfile
+docker-compose.yml
+vendor
+/env.*
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/tmp/db
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+.byebug_history
+.irb-history

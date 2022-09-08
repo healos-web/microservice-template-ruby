@@ -1,0 +1,21 @@
+default: &default
+  adapter:  postgres
+  encoding: UTF8
+  username: <%= ENV.fetch('DB_USERNAME') %>
+  password: <%= ENV.fetch('DB_PASSWORD') %>
+  host:     <%= ENV.fetch('DB_HOST', 'localhost') %>
+  port:     <%= ENV.fetch('DB_PORT', 5432) %>
+
+development:
+  <<: *default
+  database: examplesvc_development
+
+test:
+  <<: *default
+  database: examplesvc_test
+
+production:
+  <<: *default
+  database: examplesvc_production
+  username: examplesvc
+  password: <%= ENV['DATABASE_PASSWORD'] %>

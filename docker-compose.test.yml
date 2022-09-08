@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:14.1-alpine
+    networks:
+      - test-network
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=examplesvc_test
+  app:
+    image: examplesvc_test
+    build:
+      context: .
+      dockerfile: ./Dockerfile.test
+    restart: "no"
+    environment:
+      APP_ENV: test
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: db
+    depends_on:
+      - db
+    networks:
+      - test-network
+networks:
+  test-network:
+    driver: bridge

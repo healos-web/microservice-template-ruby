@@ -1,0 +1,8 @@
+logger:
+  error:
+    kafka_not_responding: 'Kafka сервер не отвечает.'
+
+failure:
+  uknown_operation: 'Неизвестная операция.'
+  unauthorized: 'Операция не разрешена.'
+  current_user_error: 'Переданные данные пользователя неверны.'
